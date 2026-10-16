@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Giro con Sensor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>CONTROL DE GIRO CON SENSOR</h1>
+        <p>Facultad de Ingeniería | Escuela de Ingeniería en Computación</p>
+        <p>EAI441 - Proyecto de Electrónica Aplicada al Internet</p>
+        <p>Arduino UNO R4 WiFi</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Modo de operación</h2>
+
+            <button id="btnManual">Modo Manual</button>
+            <button id="btnAutomatico">Modo Automático</button>
+
+            <p>Modo actual: <span id="modo">Manual</span></p>
+        </section>
+
+        <section>
+            <h2>Control del Motor</h2>
+
+            <button id="btnIzquierda">⬅ Izquierda</button>
+            <button id="btnDerecha">Derecha ➡</button>
+            <button id="btnDetener">■ Detener</button>
+
+            <p>Estado del motor:
+                <span id="estadoMotor">Detenido</span>
+            </p>
+        </section>
+
+        <section>
+            <h2>Sensor Ultrasónico HC-SR04</h2>
+
+            <div class="display-distancia">
+                <h3><span id="distancia">0</span> cm</h3>
+                <p>Distancia detectada en tiempo real</p>
+            </div>
+
+            <div class="reglas-sensor">
+                <span class="regla-item">10 - 25 cm: Giro Derecha ➡</span>
+                <span class="regla-item">26 - 40 cm: Giro Izquierda ⬅</span>
+                <span class="regla-item">Fuera de rango: Detenido ■</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Integrantes del Grupo</h2>
+
+            <div class="integrantes">
+                <div>
+                    <img src="img/Anderson.jpg" alt="Anderson Alfredo Escobar Morán" onerror="this.onerror=null; this.src='img/placeholder.svg';">
+                    <p>Anderson Alfredo Escobar Morán</p>
+                    <span class="carnet">EM251400</span>
+                </div>
+
+                <div>
+                    <img src="img/David.jpg" alt="David Alexander Franco Rivera" onerror="this.onerror=null; this.src='img/placeholder.svg';">
+                    <p>David Alexander Franco Rivera</p>
+                    <span class="carnet">FR250101</span>
+                </div>
+
+                <div>
+                    <img src="img/Edwin.jpg" alt="Edwin Daniel Leiva Barrera" onerror="this.onerror=null; this.src='img/placeholder.svg';">
+                    <p>Edwin Daniel Leiva Barrera</p>
+                    <span class="carnet">LB250368</span>
+                </div>
+
+                <div>
+                    <img src="img/Jorge.jpg" alt="Jorge Luis Lugo González" onerror="this.onerror=null; this.src='img/placeholder.svg';">
+                    <p>Jorge Luis Lugo González</p>
+                    <span class="carnet">LG242867</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>F.C. Barcelona</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg"
+                 alt="Escudo oficial del FC Barcelona"
+                 width="120">
+        </section>
+
+        <section>
+            <h2>Real Madrid C.F.</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg"
+                 alt="Escudo del Real Madrid"
+                 width="120">
+        </section>
+    </main>
+
+    <footer>
+        <p>EAI441 - Control de Giro con Sensor</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
