@@ -93,11 +93,11 @@ app.post('/api/modo', (req, res) => {
 });
 
 // Endpoint para que Arduino/ESP32 (o la web) actualice la lectura de distancia
-app.post(['/api/distancia', '/api/sensor'], (req, res) => {
+app.post(['/api/distancia', '/api/sensor', '/api/arduino'], (req, res) => {
     const valor = req.body.distancia ?? req.body.cm ?? req.body.dist ?? req.query.distancia ?? req.query.cm;
     const d = parseFloat(valor);
 
-    if (isNaN(d) || d < 0) {
+    if (isNaN(d)) {
         return res.status(400).json({
             error: 'Distancia no válida'
         });
@@ -119,7 +119,7 @@ app.post(['/api/distancia', '/api/sensor'], (req, res) => {
 });
 
 // Compatibilidad GET para microcontroladores con librerías HTTP simples
-app.get(['/api/distancia', '/api/sensor'], (req, res) => {
+app.get(['/api/distancia', '/api/sensor', '/api/arduino'], (req, res) => {
     const valor = req.query.distancia ?? req.query.cm ?? req.query.val;
     if (valor !== undefined) {
         const d = parseFloat(valor);
