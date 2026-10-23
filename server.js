@@ -24,7 +24,8 @@ let estado = {
     dispositivo: 'Arduino UNO R4 WiFi',
     motor: 'detenido',
     modo: 'manual',
-    distancia: 0
+    distancia: 0,
+    ultimaConexion: null
 };
 
 // Función para calcular el estado del motor en modo automático
@@ -40,7 +41,12 @@ function calcularMotorAutomatico(distancia) {
 
 // Consultar estado actual
 app.get('/api/estado', (req, res) => {
-    res.json(estado);
+    const ahora = Date.now();
+    const arduinoConectado = Boolean(estado.ultimaConexion && (ahora - estado.ultimaConexion <= 5000));
+    res.json({
+        ...estado,
+        arduinoConectado
+    });
 });
 
 // Control manual del motor
@@ -94,6 +100,8 @@ app.post('/api/modo', (req, res) => {
 
 // Endpoint para que Arduino/ESP32 (o la web) actualice la lectura de distancia
 app.post(['/api/distancia', '/api/sensor', '/api/arduino'], (req, res) => {
+    estado.ultimaConexion = Date.now();
+
     const valor = req.body.distancia ?? req.body.cm ?? req.body.dist ?? req.query.distancia ?? req.query.cm;
     const d = parseFloat(valor);
 
@@ -122,6 +130,7 @@ app.post(['/api/distancia', '/api/sensor', '/api/arduino'], (req, res) => {
 app.get(['/api/distancia', '/api/sensor', '/api/arduino'], (req, res) => {
     const valor = req.query.distancia ?? req.query.cm ?? req.query.val;
     if (valor !== undefined) {
+        estado.ultimaConexion = Date.now();
         const d = parseFloat(valor);
         if (!isNaN(d) && d >= 0) {
             estado.distancia = Math.round(d * 10) / 10;
@@ -130,7 +139,12 @@ app.get(['/api/distancia', '/api/sensor', '/api/arduino'], (req, res) => {
             }
         }
     }
-    res.json(estado);
+    const ahora = Date.now();
+    const arduinoConectado = Boolean(estado.ultimaConexion && (ahora - estado.ultimaConexion <= 5000));
+    res.json({
+        ...estado,
+        arduinoConectado
+    });
 });
 
 // Iniciar servidor

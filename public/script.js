@@ -9,6 +9,8 @@ const btnAutomatico = document.getElementById('btnAutomatico');
 const estadoMotor = document.getElementById('estadoMotor');
 const modoActual = document.getElementById('modo');
 const distancia = document.getElementById('distancia');
+const arduinoStatus = document.getElementById('arduinoStatus');
+const estadoArduinoCard = document.getElementById('estadoArduinoCard');
 
 // Enviar solicitudes POST a nuestra API
 async function enviarComando(ruta, datos) {
@@ -64,6 +66,17 @@ async function actualizarEstado() {
         modoActual.textContent = datos.modo;
         distancia.textContent = datos.distancia;
 
+        // Actualizar estado de conexión de Arduino
+        if (datos.arduinoConectado) {
+            arduinoStatus.textContent = 'Conectado';
+            estadoArduinoCard.classList.add('conectado');
+            estadoArduinoCard.classList.remove('desconectado');
+        } else {
+            arduinoStatus.textContent = 'Desconectado';
+            estadoArduinoCard.classList.add('desconectado');
+            estadoArduinoCard.classList.remove('conectado');
+        }
+
         // Resaltar botón de modo activo
         if (datos.modo === 'automatico') {
             btnAutomatico.classList.add('activo');
@@ -83,6 +96,11 @@ async function actualizarEstado() {
     } catch (error) {
         console.error('Error al consultar la API:', error);
         estadoMotor.textContent = 'Sin conexión';
+        if (arduinoStatus && estadoArduinoCard) {
+            arduinoStatus.textContent = 'Desconectado (Sin servidor)';
+            estadoArduinoCard.classList.add('desconectado');
+            estadoArduinoCard.classList.remove('conectado');
+        }
     }
 }
 
