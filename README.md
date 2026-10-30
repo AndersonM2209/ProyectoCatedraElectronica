@@ -1,4 +1,4 @@
-﻿# Control de Giro con Sensor — EAI441 (IoT)
+﻿# Control de Giro con Sensor — EAI441
 
 > **Proyecto de Cátedra:** Sistema Ciberfísico IoT de control bidireccional de motor DC mediante sensor ultrasónico y supervisión remota en la nube.  
 > **Institución:** Universidad Don Bosco (UDB) — Facultad de Ingeniería  
