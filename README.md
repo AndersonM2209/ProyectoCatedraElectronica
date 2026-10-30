@@ -3,7 +3,7 @@
 > **Proyecto de Cátedra:** Sistema Ciberfísico IoT de control bidireccional de motor DC mediante sensor ultrasónico y supervisión remota en la nube.  
 > **Institución:** Universidad Don Bosco (UDB) — Facultad de Ingeniería  
 > **Materia:** Electrónica Aplicada al Internet de las Cosas (EAI441)  
-> **Docente:** Ing. Rene Antonio Burgos Castro  
+> **Docente:** Ing. Rene Antonio Burgos Castaneda
 
 ---
 
