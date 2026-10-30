@@ -11,7 +11,6 @@
 
 - 🚀 **Despliegue en Vivo (Render):** [https://proyectocatedraelectronica.onrender.com/](https://proyectocatedraelectronica.onrender.com/)
 - 💻 **Repositorio GitHub:** [https://github.com/AndersonM2209/ProyectoCatedraElectronica](https://github.com/AndersonM2209/ProyectoCatedraElectronica)
-- 🔌 **Simulación en Tinkercad:** [Ver circuito interactivo](https://www.tinkercad.com/things/elwyCemcAzF-proyecto-de-catedra-2?sharecode=rt_yxvxbkT3F6r8L_CVzDrwe97kjH1oui9g4qMdltHc)
 
 ---
 
